@@ -19,10 +19,29 @@ function displayresult(numberguess){
 
     if(numberguess>correctnumber)
     {
+        if (numberguess-correctnumber<=5){
+        showNumberclose();
+        }
+        else if(numberguess-correctnumber>5&&numberguess-correctnumber<=15)
+        {
+            showNumberhigh();
+        }
+        else
+        {
        showNumberabove();
+        }
     }
     else if (numberguess<correctnumber){
+        if (correctnumber-numberguess<=5){
+        showNumberclose();
+        }
+         else if(correctnumber-numberguess>5&&correctnumber-numberguess<=15)
+        {
+            showNumberlow();
+        }
+        else{
         showNumberbelow();
+        }
     }
     else{
     showyouwon();
@@ -80,6 +99,31 @@ function showNumberbelow(){
 
     let dialog=getdialog("warning",text);
     document.getElementById("result").innerHTML=dialog;
+}
+
+function showNumberhigh(){
+
+    const text="Your guess is high!!";
+
+    let dialog=getdialog("warning",text);
+    document.getElementById("result").innerHTML=dialog;
+}
+
+function showNumberlow(){
+
+    const text="Your guess is low!!";
+
+    let dialog=getdialog("warning",text);
+    document.getElementById("result").innerHTML=dialog;
+}
+
+function showNumberclose(){
+    
+    const text="Keep Guessing,you are close!!";
+    
+    let dialog=getdialog("warning",text);
+    document.getElementById("result").innerHTML=dialog;
+    
 }
 
 function getGuessHistory(guess){
