@@ -60,6 +60,7 @@ body{
 
 .alert{
     width:390px;
+    text-align:center;
 }
 
 #result{
